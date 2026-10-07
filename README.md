@@ -37,6 +37,12 @@ The application is compiled from the latest upstream release tag (or from
 `quick-sharun` deploys it. Do not build this anywhere except Arch Linux, and
 install the application to `/usr` before deploying it.
 
+## RTL-SDR
+
+`librtlsdr` is bundled, but the `rtl-sdr` udev rules cannot be installed by an
+AppImage, so non-root access to a dongle still needs those rules on the host
+(most distros ship them in their `rtl-sdr` package).
+
 ---
 
 More at: [AnyLinux-AppImages](https://pkgforge-dev.github.io/Anylinux-AppImages/)

@@ -12,7 +12,9 @@ export DESKTOP=./aprsmap.desktop
 export DEPLOY_QT=1
 
 # Deploy dependencies
-quick-sharun /usr/bin/aprsmap
+# librtlsdr is loaded at runtime by APRSMap for its RTL-SDR support, and
+# quick-sharun has remapped the hardcoded /usr/lib paths into the AppDir
+quick-sharun /usr/bin/aprsmap /usr/lib/librtlsdr.so*
 
 # Additional changes can be done in between here
 

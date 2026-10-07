@@ -13,6 +13,7 @@ pacman -Syu --noconfirm --needed \
 	git             \
 	lazarus         \
 	qt6pas          \
+	rtl-sdr         \
 	strace          \
 	unzip           \
 	wget            \
