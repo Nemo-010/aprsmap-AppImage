@@ -24,6 +24,7 @@ get-debloated-pkgs --add-common --prefer-nano
 
 echo "Building APRSMap from source..."
 echo "---------------------------------------------------------------"
+export LAZARUS_DIR=/usr/lib/lazarus
 git clone https://github.com/andreaspeters/aprsmap ./aprsmap
 cd ./aprsmap
 
@@ -50,9 +51,9 @@ while IFS= read -r pkg; do
 done < use/components.txt
 
 # register every package we just fetched with lazbuild
-find use -type f -name '*.lpk' -exec lazbuild --add-package-link {} +
+find use -type f -name '*.lpk' -exec lazbuild --lazarusdir="$LAZARUS_DIR" --add-package-link {} +
 
-lazbuild --build-all --recursive --no-write-project \
+lazbuild --lazarusdir="$LAZARUS_DIR" --build-all --recursive --no-write-project \
 	--build-mode=Release --widgetset=qt6 src/aprsmap.lpi
 
 install -Dm755 src/aprsmap /usr/bin/aprsmap
